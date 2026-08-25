@@ -5,6 +5,7 @@
 # ==========================================
 
 import re
+import json
 
 applications =  [
     {
@@ -32,6 +33,20 @@ applications =  [
         "Architecture": "64-bit"
     }
 ]
+
+def save_inventory(apps):
+    with open("applications.json", "w") as file:
+        json.dump(apps, file, indent=4)
+
+def load_inventory(default_apps):
+    try:
+        with open("applications.json", "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return default_apps
+    
+applications = load_inventory(applications)
+
 ## Creating a menu
 def menu():
     print("=" * 30)
@@ -137,6 +152,7 @@ def add_application(apps, new_app):
     print("\nAdding the new application...")
     apps.append(new_app)
     print(f"\nApplication added successfully.")
+    save_inventory(apps)
 
 
 def delete_application(apps, app_name):
@@ -146,6 +162,7 @@ def delete_application(apps, app_name):
         return
     apps.remove(app)
     print(f"{app['Name']} deleted successfully.")
+    save_inventory(apps)
 
 def validate_version(version):
     return bool(re.fullmatch(r"\d+(\.\d+)*", version))
@@ -169,6 +186,7 @@ def update_app (apps, app_name):
                     return
             app["Version"] = new_version
             print(f"{app['Name']} updated successfully.")
+            save_inventory(apps)
     elif choice == "2":
             new_vendor = input("Enter New Vendor:").strip()
             if new_vendor == "":
@@ -176,6 +194,7 @@ def update_app (apps, app_name):
                 return
             app["Vendor"] = new_vendor
             print(f"{app['Name']} updated successfully.")
+            save_inventory(apps)
     elif choice == "3":
             new_arc = input("Enter New Architecture:").strip()
             if new_arc == "":
@@ -183,6 +202,7 @@ def update_app (apps, app_name):
                  return
             app["Architecture"] = new_arc
             print(f"{app['Name']} updated successfully.")
+            save_inventory(apps)
     else:
             print("Invalid Choice.")
             return

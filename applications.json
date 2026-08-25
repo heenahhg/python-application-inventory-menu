@@ -1,0 +1,26 @@
+[
+    {
+        "Name": "Google Chrome",
+        "Vendor": "Google",
+        "Version": "161.1.1",
+        "Architecture": "64-bit"
+    },
+    {
+        "Name": "Chrome Remote Control",
+        "Vendor": "Google",
+        "Version": "1.0.0",
+        "Architecture": "64-bit"
+    },
+    {
+        "Name": "Microsoft Edge",
+        "Vendor": "Microsoft",
+        "Version": "138",
+        "Architecture": "64-bit"
+    },
+    {
+        "Name": "VLC",
+        "Vendor": "VideoLAN",
+        "Version": "4.0",
+        "Architecture": "64-bit"
+    }
+]
