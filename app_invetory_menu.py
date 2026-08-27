@@ -64,7 +64,8 @@ def menu():
     print("4. Delete Application")
     print("5. Update Application")
     print("6. Sort Applications")
-    print("7. Exit")
+    print("7. Search Vendor")
+    print("8. Exit")
 
 
 def display_application(app):
@@ -115,7 +116,25 @@ def search_application(apps, app_name):
 #    "Version": "25.001",
 #    "Architecture": "64-bit"
 #}
+def search_by_vendor(apps, vendor_name):
+    print("\nSearching for application by vendor...........")
+    matches = []
 
+    for app in apps:
+        if vendor_name.lower() in app["Vendor"].lower():
+            matches.append(app)
+
+    if len(matches) == 0:
+        print("Application not found.")
+        return
+
+    print(f"\nApplications found: {len(matches)}")
+
+    for number, app in enumerate(matches, start=1):
+        print(f"\nApplication {number}")
+        display_application(app)
+
+         
 def select_application(apps, app_name):
     matches = []
 
@@ -286,7 +305,14 @@ while True:
             update_app(applications, app_name)
     elif choice == "6":
         sort_applications(applications)
-    elif choice == "7":
+    elif choice ==  "7":
+            vendor_name = input("Enter vendor name to search:").strip()
+            if vendor_name == "":
+                print("Vendor name cannot be empty.")
+                continue
+            search_by_vendor(applications, vendor_name)
+
+    elif choice == "8":
         print("Exiting...")
         break
     else:
