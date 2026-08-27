@@ -63,7 +63,8 @@ def menu():
     print("3. Add Application")
     print("4. Delete Application")
     print("5. Update Application")
-    print("6. Exit")
+    print("6. Sort Applications")
+    print("7. Exit")
 
 
 def display_application(app):
@@ -216,6 +217,15 @@ def update_app (apps, app_name):
             print("Invalid Choice.")
             return
 
+def sort_applications(apps):
+
+    sorted_apps = sorted(apps, key=lambda app: app["Name"].lower())
+
+    print("\n*****Applications Sorted by Name*****")
+
+    for number, app in enumerate(sorted_apps, start=1):
+        print(f"\nApplication {number}")
+        display_application(app)
 
 while True:
 
@@ -274,8 +284,9 @@ while True:
                 print("Application name cannot be empty.")
                 continue
             update_app(applications, app_name)
-
     elif choice == "6":
+        sort_applications(applications)
+    elif choice == "7":
         print("Exiting...")
         break
     else:
