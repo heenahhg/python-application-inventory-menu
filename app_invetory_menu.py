@@ -43,7 +43,13 @@ def load_inventory(default_apps):
         with open("applications.json", "r") as file:
             return json.load(file)
     except FileNotFoundError:
+        print("applications.json not found. Using default inventory.")
         return default_apps
+
+    except json.JSONDecodeError:
+        print("Invalid JSON data. Using default inventory.")
+        return default_apps
+    
     
 applications = load_inventory(applications)
 
