@@ -75,8 +75,11 @@ def display_application(app):
 ## Display the application list
 def display_inventory(apps):
     print("\n*****Application Inventory*******")
-
+    total = len(apps)
+    print(f"Total Applications: {total}")
+    
     for number, app in enumerate(apps, start=1):
+        
         print(f"\nApplication {number}")
         display_application(app)
       #  print(f"Name            : {app['Name']}")
