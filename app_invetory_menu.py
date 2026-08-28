@@ -64,8 +64,9 @@ def menu():
     print("4. Delete Application")
     print("5. Update Application")
     print("6. Sort Applications")
-    print("7. Search Vendor")
-    print("8. Exit")
+    print("7. Search by Vendor")
+    print("8. Search by Architecture")
+    print("9. Exit")
 
 
 def display_application(app):
@@ -122,6 +123,34 @@ def search_by_vendor(apps, vendor_name):
 
     for app in apps:
         if vendor_name.lower() in app["Vendor"].lower():
+            matches.append(app)
+
+    if len(matches) == 0:
+        print("Application not found.")
+        return
+
+    print(f"\nApplications found: {len(matches)}")
+
+    for number, app in enumerate(matches, start=1):
+        print(f"\nApplication {number}")
+        display_application(app)
+
+def normalize_architecture(architecture):
+     architecture = architecture.lower().strip()
+     if architecture in ["64", "64-bit", "x64", "amd64"]:
+        return "64-bit"
+
+     if architecture in ["32", "32-bit", "x86"]:
+        return "32-bit"
+
+     return architecture
+
+def search_by_arch(apps, architecture):
+    print("\nSearching for application by architecture...........")
+    matches = []
+
+    for app in apps:
+        if normalize_architecture(architecture) == normalize_architecture(app["Architecture"]):
             matches.append(app)
 
     if len(matches) == 0:
@@ -311,8 +340,14 @@ while True:
                 print("Vendor name cannot be empty.")
                 continue
             search_by_vendor(applications, vendor_name)
+    elif choice ==  "8":
+                architecture = input("Enter architecture to search:").strip()
+                if architecture == "":
+                    print("Architecture cannot be empty.")
+                    continue
+                search_by_arch(applications, architecture)
 
-    elif choice == "8":
+    elif choice == "9":
         print("Exiting...")
         break
     else:
