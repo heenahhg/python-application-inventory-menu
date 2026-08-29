@@ -68,6 +68,14 @@ def menu():
     print("8. Search by Architecture")
     print("9. Exit")
 
+def get_menu_choice():
+     while True:
+          choice = input("Enter your choice:").strip()
+
+          if choice.isdigit():
+               return choice
+
+          print("Invalid Input. Please enter a number.")
 
 def display_application(app):
     print(f"Name            : {app['Name']}")
@@ -279,9 +287,9 @@ while True:
 
     menu()
 
-    choice = input("Enter your choice: ")
+    choice = get_menu_choice()
     print(f"You selected: {choice}")
-
+    
     if choice == "1":
         #print(type(choice))
         display_inventory(applications)
