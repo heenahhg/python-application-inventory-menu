@@ -28,5 +28,11 @@
         "Vendor": "7-Zip",
         "Version": "25.01",
         "Architecture": "64-bit"
+    },
+    {
+        "Name": "Notepad++",
+        "Vendor": "DonHO",
+        "Version": "12.0.0",
+        "Architecture": "64-bit"
     }
 ]

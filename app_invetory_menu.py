@@ -262,11 +262,12 @@ def update_app (apps, app_name):
             print(f"{app['Name']} updated successfully.")
             save_inventory(apps)
     elif choice == "3":
-            new_arc = input("Enter New Architecture:").strip()
-            if new_arc == "":
+            architecture = input("Enter New Architecture:").strip()
+            if architecture == "":
                  print("Application architecture cannot be empty.")
                  return
-            app["Architecture"] = new_arc
+            architecture = normalize_architecture(architecture)
+            app["Architecture"] = architecture
             print(f"{app['Name']} updated successfully.")
             save_inventory(apps)
     else:
@@ -322,6 +323,8 @@ while True:
             print("Architecture cannot be empty.")
             continue
 
+        architecture = normalize_architecture(architecture)
+
         new_app = {
             "Name" : name, 
             "Vendor" : vendor, 
@@ -353,6 +356,8 @@ while True:
                 if architecture == "":
                     print("Architecture cannot be empty.")
                     continue
+                architecture = normalize_architecture(architecture)
+
                 search_by_arch(applications, architecture)
 
     elif choice == "9":
