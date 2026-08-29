@@ -217,7 +217,7 @@ def application_exists(apps, app_name):
 def add_application(apps, new_app):
     print("\nAdding the new application...")
     apps.append(new_app)
-    print(f"\nApplication added successfully.")
+    print("\nApplication added successfully.")
     save_inventory(apps)
 
 

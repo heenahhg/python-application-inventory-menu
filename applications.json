@@ -22,5 +22,11 @@
         "Vendor": "VideoLAN",
         "Version": "4.0",
         "Architecture": "64-bit"
+    },
+    {
+        "Name": "7-Zip",
+        "Vendor": "7-Zip",
+        "Version": "25.01",
+        "Architecture": "64-bit"
     }
 ]
