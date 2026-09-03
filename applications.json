@@ -3,13 +3,7 @@
         "Name": "Google Chrome",
         "Vendor": "Google",
         "Version": "161.1.1",
-        "Architecture": "64-bit"
-    },
-    {
-        "Name": "Chrome Remote Control",
-        "Vendor": "Google",
-        "Version": "1.0.0",
-        "Architecture": "64-bit"
+        "Architecture": "32-bit"
     },
     {
         "Name": "Microsoft Edge",
@@ -34,5 +28,11 @@
         "Vendor": "DonHO",
         "Version": "12.0.0",
         "Architecture": "64-bit"
+    },
+    {
+        "Name": "Test",
+        "Vendor": "Test",
+        "Version": "11.0.0",
+        "Architecture": "32-bit"
     }
 ]
