@@ -1,4 +1,5 @@
 import json
+import re
 
 def save_inventory(apps):
     with open("applications.json", "w") as file:
@@ -99,6 +100,9 @@ def search_by_arch(apps, architecture):
     for number, app in enumerate(matches, start=1):
         print(f"\nApplication {number}")
         display_application(app)
+
+def validate_version(version):
+    return bool(re.fullmatch(r"\d+(\.\d+)*", version))
 
 def select_application(apps, app_name):
     matches = []

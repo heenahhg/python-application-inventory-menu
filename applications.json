@@ -30,9 +30,9 @@
         "Architecture": "64-bit"
     },
     {
-        "Name": "Test",
-        "Vendor": "Test",
-        "Version": "11.0.0",
+        "Name": "Winzip",
+        "Vendor": "Winzip",
+        "Version": "1.2.4",
         "Architecture": "32-bit"
     }
 ]

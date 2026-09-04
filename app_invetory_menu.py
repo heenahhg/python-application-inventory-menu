@@ -3,10 +3,7 @@
 # Developer: Hina Gohil
 # Version: 1.0
 # ==========================================
-
-import re
-
-from inventory_functions import display_application, display_inventory, search_application, search_by_vendor, normalize_architecture, search_by_arch, select_application, application_exists, sort_applications, load_inventory, save_inventory
+from inventory_functions import display_application, display_inventory, search_application, search_by_vendor, normalize_architecture, search_by_arch, select_application, application_exists, sort_applications, load_inventory, save_inventory, validate_version
 
 applications =  [
     {
@@ -77,8 +74,6 @@ def delete_application(apps, app_name):
     print(f"{app['Name']} deleted successfully.")
     save_inventory(apps)
 
-def validate_version(version):
-    return bool(re.fullmatch(r"\d+(\.\d+)*", version))
 
 def update_app (apps, app_name):
     
