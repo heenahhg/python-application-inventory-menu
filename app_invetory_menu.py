@@ -44,10 +44,9 @@ def menu():
     print("3. Add Application")
     print("4. Delete Application")
     print("5. Update Application")
-    print("6. Sort Applications")
-    print("7. Search by Vendor")
-    print("8. Search by Architecture")
-    print("9. Exit")
+    print("6. Search by Vendor")
+    print("7. Search by Architecture")
+    print("8. Exit")
 
 def get_menu_choice():
      while True:
@@ -125,8 +124,8 @@ while True:
     
     if choice == "1":
         #print(type(choice))
-        display_inventory(applications)
-        
+        #display_inventory(applications)
+        sort_applications(applications)
     elif choice ==  "2":
         app_name = input("Enter application name to search:").strip()
         if app_name == "":
@@ -175,15 +174,13 @@ while True:
                 print("Application name cannot be empty.")
                 continue
             update_app(applications, app_name)
-    elif choice == "6":
-        sort_applications(applications)
-    elif choice ==  "7":
+    elif choice ==  "6":
             vendor_name = input("Enter vendor name to search:").strip()
             if vendor_name == "":
                 print("Vendor name cannot be empty.")
                 continue
             search_by_vendor(applications, vendor_name)
-    elif choice ==  "8":
+    elif choice ==  "7":
                 architecture = input("Enter architecture to search:").strip()
                 if architecture == "":
                     print("Architecture cannot be empty.")
@@ -192,7 +189,7 @@ while True:
 
                 search_by_arch(applications, architecture)
 
-    elif choice == "9":
+    elif choice == "8":
         print("Exiting...")
         break
     else:

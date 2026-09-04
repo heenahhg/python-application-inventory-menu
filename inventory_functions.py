@@ -34,6 +34,7 @@ def display_inventory(apps):
     for number, app in enumerate(apps, start=1):
         
         print(f"\nApplication {number}")
+        #sort_applications(app)
         display_application(app)
 
 ##searching for the application
