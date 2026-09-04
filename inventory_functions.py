@@ -122,23 +122,25 @@ def select_application(apps, app_name):
         
         for number, app in enumerate(matches, start=1):
                 print(f"Application {number}: {app['Name']}")
-
+    while True:
         selected = input("Enter the number of the application:")
                 
         try:
             selected = int(selected)
         except ValueError:
             print("Invalid application number.")
-            return None
+            continue
                    
         if selected < 1 or selected > len(matches):
             print("Invalid application number.")
-            return None
-                               
-        app = matches[selected - 1]
+            continue
+
+        break
+
+    app = matches[selected - 1]
                    
-        print("Selected application:", app["Name"])
-        return app    
+    print("Selected application:", app["Name"])
+    return app    
        
 def application_exists(apps, app_name):
     for app in apps:
